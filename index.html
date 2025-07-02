@@ -62,7 +62,7 @@
       text-decoration: none;
       color: #e55523;
     }
-        header {
+    header {
       background: url('header.png') center center/cover no-repeat;
       height: 50vh;
       display: flex;
@@ -92,7 +92,6 @@
       height: auto;
       margin: 1rem 0;
     }
-    
     a.button {
       display: inline-block;
       padding: 0.75rem 1.5rem;
@@ -103,22 +102,19 @@
       border-radius: 4px;
     }
     @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-      }
-      .hamburger {
-        display: flex;
-      }
-      .mobile-nav.show {
-        display: flex;
-      }
-      header {
-        height: 80vh;
-        padding: 1rem;
-      }
-      .intro, .content-block {
-        padding: 1rem;
-      }
+  .nav-links {
+    display: none;
+  }
+  .hamburger {
+    display: flex;
+  }
+  .mobile-nav.show {
+    display: flex;
+  }
+  .intro, .content-block {
+    padding: 1rem;
+  }
+}
     }
     .slideshow-container {
       max-width: 1000px;
@@ -182,49 +178,45 @@
       background-color: #717171;
     }
     .responsive {
-  width: 100%;
-  max-width: 800px;
-  height: auto;
-}
-</style>
-<script>
-  function toggleMobileNav() {
-    const nav = document.getElementById('mobileNav');
-    nav.classList.toggle('show');
-  }
-</script>
-<script>
-  function toggleMobileNav() {
-    const nav = document.getElementById('mobileNav');
-    nav.classList.toggle('show');
-  }
+      width: 100%;
+      max-width: 800px;
+      height: auto;
+    }
+  </style>
+  <script>
+    function toggleMobileNav() {
+      const nav = document.getElementById('mobileNav');
+      nav.classList.toggle('show');
+    }
 
-  let slideIndex = 1;
-  function plusSlides(n) {
-    showSlides(slideIndex += n);
-  }
-  function currentSlide(n) {
-    showSlides(slideIndex = n);
-  }
-  function showSlides(n) {
-    let i;
-    let slides = document.getElementsByClassName("mySlides");
-    let dots = document.getElementsByClassName("dot");
-    if (n > slides.length) {slideIndex = 1}
-    if (n < 1) {slideIndex = slides.length}
-    for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
+    let slideIndex = 1;
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
     }
-    for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
     }
-    slides[slideIndex-1].style.display = "block";
-    dots[slideIndex-1].className += " active";
-  }
-  document.addEventListener("DOMContentLoaded", function() {
-    showSlides(slideIndex);
-  });
-</script>
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("dot");
+      if (n > slides.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";
+      if (dots[slideIndex-1]) {
+        dots[slideIndex-1].className += " active";
+      }
+    }
+    document.addEventListener("DOMContentLoaded", function() {
+      showSlides(slideIndex);
+    });
+  </script>
 </head>
 <body>
   <header></header>
@@ -248,31 +240,32 @@
       <a href="#contact">聯絡</a>
     </div>
   </nav>
-    <section class="content-block" id="about">
-          <h2>一道道傳承下來的菜式</h2>
+
+  <section class="content-block" id="about">
+    <h2>一道道傳承下來的菜式</h2>
     <p>二十世紀四十年代，趙藻華在紐約傳奇餐廳如林蓉舫與 Ruby Foo’s 工作時，默默記錄下六百多道粵菜食譜。數十年後，這些手寫筆記被他的孫子發現，揭開了華人移民餐飲史的新篇章。</p>
-  <div class="slideshow-container">
-    <div class="mySlides fade">
-      <img src="dish1.png" style="width:100%">
+    <div class="slideshow-container">
+      <div class="mySlides fade">
+        <img src="dish1.png" style="width:100%">
+      </div>
+      <div class="mySlides fade">
+        <img src="dish2.png" style="width:100%">
+      </div>
+      <div class="mySlides fade">
+        <img src="dish3.png" style="width:100%">
+      </div>
+      <div class="mySlides fade">
+        <img src="dish4.png" style="width:100%">
+      </div>
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
     </div>
-    <div class="mySlides fade">
-      <img src="dish2.png" style="width:100%">
-    </div>
-    <div class="mySlides fade">
-      <img src="dish3.png" style="width:100%">
-    </div>
-        <div class="mySlides fade">
-      <img src="dish4.png" style="width:100%">
-    </div>
-    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-  </div>
-    </section>
+  </section>
 
   <section class="intro" id="book">
     <h2>新書即將上市</h2>
     <p>這本書是傳記、飲食文化史與家庭檔案的結合。透過一套珍貴的食譜筆記，它追溯了一段移民家庭的故事，也展示了中餐如何深植於美國生活之中。《沉埋的粵菜檔案》將於七月在香港書店正式發行，敬請期待。</p>
-          <img src="book.png" style="width:100%" class="responsive">
+    <img src="book.png" style="width:100%" class="responsive">
   </section>
 
   <section class="content-block" id="updates">
@@ -281,6 +274,5 @@
     <a href="mailto:you@example.com" class="button">加入郵件通知</a>
   </section>
 
-  
 </body>
 </html>
