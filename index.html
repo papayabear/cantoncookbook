@@ -63,7 +63,7 @@
       color: #e55523;
     }
       header {
-      background: url('header.png') center center/cover no-repeat;
+      background-image: url('header.png') center center/cover no-repeat;
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
@@ -109,10 +109,6 @@
       }
       .mobile-nav.show {
         display: flex;
-      }
-      header {
-        height: 80vh;
-        padding: 1rem;
       }
       .intro, .content-block {
         padding: 1rem;
@@ -225,7 +221,6 @@
 </script>
 </head>
 <body>
-  <header></header>
   <nav>
     <a href="index.html" style="margin-right:auto;"><img src="logo.png" alt="Logo" style="height:40px;"></a>
     <div class="nav-links">
@@ -246,6 +241,7 @@
       <a href="#contact">聯絡</a>
     </div>
   </nav>
+  <div class="header"></div>
     <section class="content-block" id="about">
           <h2>一道道傳承下來的菜式</h2>
     <p>二十世紀四十年代，趙藻華在紐約傳奇餐廳如林蓉舫與 Ruby Foo’s 工作時，默默記錄下六百多道粵菜食譜。數十年後，這些手寫筆記被他的孫子發現，揭開了華人移民餐飲史的新篇章。</p>
