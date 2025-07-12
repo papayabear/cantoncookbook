@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>廣州食譜：趙藻華的失落手稿</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link href="https://fonts.googleapis.com/css2?family=Clash+Grotesk:wght@400;700&family=Lato:wght@400;700&family=Proxima+Nova:wght@400;700&family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
@@ -119,34 +120,12 @@
         padding: 1rem;
       }
     }
- .responsive-scroll-gallery {
-  display: flex;
-  overflow-x: auto;
-  gap: 1rem;
-  padding: 1rem 0;
-  scroll-snap-type: x mandatory;
-}
-
-.responsive-scroll-gallery img {
-  flex: 0 0 auto;
-  height: 200px;
-  width: auto;
-  scroll-snap-align: start;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-@media (min-width: 768px) {
-  .responsive-scroll-gallery img {
-    flex-basis: calc((100% - 2rem) / 3); /* fits 3 items with 2 gaps */
-    height: 200px;
-    width: auto;
-  }
-}
-
-.responsive-scroll-gallery::-webkit-scrollbar {
-  display: none;
-}
+    .slideshow-container {
+      max-width: 1000px;
+      position: relative;
+      margin: auto;
+      margin-top: 60px;
+    }
     .mySlides {
       display: none;
     }
@@ -216,6 +195,16 @@
       margin-top: 60px;
       padding: 2rem 0rem;
     }
+        div.scroll-container {
+  background-color: #823e3f;
+  overflow: auto;
+  white-space: nowrap;
+  padding: 10px;
+}
+
+div.scroll-container img {
+  padding: 10px;
+}
   </style>
   <script>
     function toggleMobileNav() {
@@ -278,16 +267,15 @@
     <img src="header.png"  style="width:100%" style="height:80vh" class="responsiveheader">
     <section class="content-block" id="about">
           <h2>一道道傳承下來的菜式</h2>
-    <p>二十世紀四十年代，趙藻華在紐約傳奇餐廳如林芳園與 Ruby Foo’s 工作時，默默記錄下六百多道粵菜食譜。數十年後，這些手寫筆記被他的孫子發現，揭開了華人移民餐飲史的新篇章。</p>
-  <div class="responsive-scroll-gallery>
-    <img src="image1.png" alt="趙藻華" />
-    <img src="image2.jpg" alt="唐人街林芳園總店" />
-    <img src="image3.png" alt="Ruby Foo's餐牌" />
-    <img src="image4.png" alt="大同酒家" />
-    <img src="image5.jpg" alt="華宮酒家報章廣告" />
-  </div>
-</section>
-      <p></p>
+    <p>二十世紀四十年代，趙藻華在紐約傳奇餐廳如林蓉舫與 Ruby Foo’s 工作時，默默記錄下六百多道粵菜食譜。數十年後，這些手寫筆記被他的孫子發現，揭開了華人移民餐飲史的新篇章。</p>
+      <div class="scroll-container">
+<img src="image1600.png" alt="趙藻華" />
+    <img src="image2600.jpg" alt="唐人街林芳園總店" />
+    <img src="image3600.png" alt="Ruby Foo's餐牌" />
+    <img src="image4600.png" alt="大同酒家" />
+    <img src="image5600.jpg" alt="華宮酒家報章廣告" />
+      </div>
+      </section>
        <section class="intro" id="recipes">
           <h2>六百四十五道菜</h2>
   <div class="slideshow-container">
@@ -307,12 +295,10 @@
     <a class="next" onclick="plusSlides(1)">&#10095;</a>
   </div>
     </section>
-
   <section class="content-block" id="updates">
     <h2>新書即將上市</h2>
     <p>這本書是傳記、飲食文化史與家庭檔案的結合。透過一套珍貴的食譜筆記，它追溯了一段移民家庭的故事，也展示了中餐如何深植於美國生活之中。《沉埋的粵菜檔案》將於七月在香港書店正式發行，敬請期待。</p>
-          <img src="book.png" style="width:100%" class="responsive">
-  </section>
+  <img src="book.png" style="width:100%" class="responsive">
     <img src="eslite.jpg" style="width:100%" class="responsive">
     <h3>銅鑼灣店活動｜中菜如何在美國開枝散葉？——《沉埋的粵菜檔案》新書分享會</h3><p>
 活動期間 2025年7月27日 17:00-18:00<br>
