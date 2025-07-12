@@ -33,7 +33,7 @@
       align-items: center;
     }
     .nav-links a {
-      text-decoration: underline;
+      text-decoration: none;
       color: #e55523;
       font-weight: 600;
       padding: 0.5rem 1rem;
@@ -69,14 +69,6 @@
       text-decoration: none;
       color: #e55523;
     }
-    header {
-      background-image: url('header.png') center center/cover no-repeat;
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
-      max-width: 80%;
-      margin-top: 60px;
-    }
     .intro {
       background-color: #f2f2f2;
       padding: 2rem;
@@ -102,11 +94,6 @@
       margin: 2rem auto;
       display: block;
     }
-    @media (max-width: 768px) {
-      .book-img {
-        width: 100%;
-        margin: 1rem 0;
-      }
     a.button {
       display: inline-block;
       padding: 0.75rem 1.5rem;
@@ -128,6 +115,10 @@
       }
       .intro, .content-block {
         padding: 1rem;
+      }
+      .book-img {
+        width: 100%;
+        margin: 1rem 0;
       }
     }
     .slideshow-container {
@@ -198,12 +189,12 @@
     }
     .responsiveheader {
       width: 100%;
-      max-width: 1400px;
+      max-width: 1600px;
       height: auto;
       display: flex;
       justify-content: center;
       margin-top: 60px;
-      padding: 2rem 0rem;
+      padding: 0rem 0rem;
     }
     div.scroll-container {
       background-color: #823e3f;
@@ -282,7 +273,7 @@
   </nav>
 <header>
 </header>
-    <img src="header.png"  style="width:80%" style="height:80vh" class="responsiveheader">
+    <img src="header.png"  style="width:100%" style="height:80vh" class="responsiveheader">
     <section class="content-block" id="about">
           <h2>一道道傳承下來的菜式</h2>
     <p>二十世紀四十年代，趙藻華在紐約傳奇餐廳如林芳園與 Ruby Foo’s 工作時，默默記錄下六百多道粵菜食譜。數十年後，這些手寫筆記被他的孫子發現，揭開了華人移民餐飲史的新篇章。</p>
