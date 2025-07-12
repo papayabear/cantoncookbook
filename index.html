@@ -29,6 +29,7 @@
     .nav-links {
       display: flex;
       gap: 1.5rem;
+      align-items: center;
     }
     .nav-links a {
       text-decoration: none;
@@ -36,6 +37,11 @@
       font-weight: 600;
       padding: 0.5rem 1rem;
       transition: background 0.3s ease;
+    }
+    .lang-toggle {
+      font-weight: 600;
+      cursor: pointer;
+      padding-left: 1rem;
     }
     .hamburger {
       display: none;
@@ -62,7 +68,7 @@
       text-decoration: none;
       color: #e55523;
     }
-      header {
+    header {
       background-image: url('header.png') center center/cover no-repeat;
       background-size: contain;
       background-repeat: no-repeat;
@@ -90,7 +96,6 @@
       height: auto;
       margin: 1rem 0;
     }
-    
     a.button {
       display: inline-block;
       padding: 0.75rem 1.5rem;
@@ -114,12 +119,34 @@
         padding: 1rem;
       }
     }
-    .slideshow-container {
-      max-width: 1000px;
-      position: relative;
-      margin: auto;
-      margin-top: 60px;
-    }
+ .responsive-scroll-gallery {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  padding: 1rem 0;
+  scroll-snap-type: x mandatory;
+}
+
+.responsive-scroll-gallery img {
+  flex: 0 0 auto;
+  height: 200px;
+  width: auto;
+  scroll-snap-align: start;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+@media (min-width: 768px) {
+  .responsive-scroll-gallery img {
+    flex-basis: calc((100% - 2rem) / 3); /* fits 3 items with 2 gaps */
+    height: 200px;
+    width: auto;
+  }
+}
+
+.responsive-scroll-gallery::-webkit-scrollbar {
+  display: none;
+}
     .mySlides {
       display: none;
     }
@@ -176,67 +203,62 @@
       background-color: #717171;
     }
     .responsive {
-  width: 100%;
-  max-width: 800px;
-  height: auto;
-}
+      width: 100%;
+      max-width: 800px;
+      height: auto;
+    }
     .responsiveheader {
-  width: 100%;
-  max-width: 1600px;
-  height: auto;
-  display: flex;
-  justify-content: center;
-  margin-top: 60px;
-  padding: 2rem 0rem;
-}
-</style>
-<script>
-  function toggleMobileNav() {
-    const nav = document.getElementById('mobileNav');
-    nav.classList.toggle('show');
-  }
-</script>
-<script>
-  function toggleMobileNav() {
-    const nav = document.getElementById('mobileNav');
-    nav.classList.toggle('show');
-  }
+      width: 100%;
+      max-width: 1600px;
+      height: auto;
+      display: flex;
+      justify-content: center;
+      margin-top: 60px;
+      padding: 2rem 0rem;
+    }
+  </style>
+  <script>
+    function toggleMobileNav() {
+      const nav = document.getElementById('mobileNav');
+      nav.classList.toggle('show');
+    }
 
-  let slideIndex = 1;
-  function plusSlides(n) {
-    showSlides(slideIndex += n);
-  }
-  function currentSlide(n) {
-    showSlides(slideIndex = n);
-  }
-  function showSlides(n) {
-    let i;
-    let slides = document.getElementsByClassName("mySlides");
-    let dots = document.getElementsByClassName("dot");
-    if (n > slides.length) {slideIndex = 1}
-    if (n < 1) {slideIndex = slides.length}
-    for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
+    let slideIndex = 1;
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
     }
-    for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
     }
-    slides[slideIndex-1].style.display = "block";
-    dots[slideIndex-1].className += " active";
-  }
-  document.addEventListener("DOMContentLoaded", function() {
-    showSlides(slideIndex);
-  });
-</script>
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("dot");
+      if (n > slides.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";
+      dots[slideIndex-1].className += " active";
+    }
+    document.addEventListener("DOMContentLoaded", function() {
+      showSlides(slideIndex);
+    });
+  </script>
 </head>
 <body>
   <nav>
     <a href="index.html" style="margin-right:auto;"><img src="logo.png" alt="Logo" style="height:40px;"></a>
     <div class="nav-links">
       <a href="#about">故事</a>
-      <a href="#book">出版</a>
-      <a href="#updates">活動</a>
+      <a href="#recipes">食譜</a>
+      <a href="#updates">出版</a>
       <a href="#contact">聯絡</a>
+      <a href="en.html" class="lang-toggle">EN</a>
     </div>
     <div class="hamburger" onclick="toggleMobileNav()">
       <div class="bar"></div>
@@ -245,9 +267,10 @@
     </div>
     <div class="mobile-nav" id="mobileNav">
       <a href="#about">故事</a>
-      <a href="#book">出版</a>
-      <a href="#updates">活動</a>
+      <a href="#recipes">食譜</a>
+      <a href="#updates">出版</a>
       <a href="#contact">聯絡</a>
+      <a href="en.html">EN</a>
     </div>
   </nav>
 <header>
@@ -255,7 +278,18 @@
     <img src="header.png"  style="width:100%" style="height:80vh" class="responsiveheader">
     <section class="content-block" id="about">
           <h2>一道道傳承下來的菜式</h2>
-    <p>二十世紀四十年代，趙藻華在紐約傳奇餐廳如林蓉舫與 Ruby Foo’s 工作時，默默記錄下六百多道粵菜食譜。數十年後，這些手寫筆記被他的孫子發現，揭開了華人移民餐飲史的新篇章。</p>
+    <p>二十世紀四十年代，趙藻華在紐約傳奇餐廳如林芳園與 Ruby Foo’s 工作時，默默記錄下六百多道粵菜食譜。數十年後，這些手寫筆記被他的孫子發現，揭開了華人移民餐飲史的新篇章。</p>
+  <div class="responsive-scroll-gallery>
+    <img src="image1.png" alt="趙藻華" />
+    <img src="image2.jpg" alt="唐人街林芳園總店" />
+    <img src="image3.png" alt="Ruby Foo's餐牌" />
+    <img src="image4.png" alt="大同酒家" />
+    <img src="image5.jpg" alt="華宮酒家報章廣告" />
+  </div>
+</section>
+      <p></p>
+       <section class="intro" id="recipes">
+          <h2>六百四十五道菜</h2>
   <div class="slideshow-container">
     <div class="mySlides fade">
       <img src="dish1.png" style="width:100%">
@@ -274,18 +308,25 @@
   </div>
     </section>
 
-  <section class="intro" id="book">
+  <section class="content-block" id="updates">
     <h2>新書即將上市</h2>
     <p>這本書是傳記、飲食文化史與家庭檔案的結合。透過一套珍貴的食譜筆記，它追溯了一段移民家庭的故事，也展示了中餐如何深植於美國生活之中。《沉埋的粵菜檔案》將於七月在香港書店正式發行，敬請期待。</p>
           <img src="book.png" style="width:100%" class="responsive">
   </section>
+    <img src="eslite.jpg" style="width:100%" class="responsive">
+    <h3>銅鑼灣店活動｜中菜如何在美國開枝散葉？——《沉埋的粵菜檔案》新書分享會</h3><p>
+活動期間 2025年7月27日 17:00-18:00<br>
+活動地點 誠品銅鑼灣店，FORUM<p>
 
-  <section class="content-block" id="updates">
-    <h2>最新消息及活動</h2>
-    <p>《沉埋的粵菜檔案》新書分享會</p>
-    活動日期 | 2025/07/25~2025/07/27
+沒想過在30年代，美國曾經有出色的中菜餐廳，甚至不少在香港失傳的菜式，都可在彼岸重現，成為美國人的生活日常。<p>
+ 
+《沉埋的粵菜檔案》作者，由獲得一本30年代的家傳粵菜食譜開始，走遍美國東西岸，穿梭香港、新會、紐約，從一個家族細說美國粵菜的故事，折射出時代和環境，背後是華人移民的血汗史。<p>
+
+主辦｜字字研究所<br>
+講者｜徐子君<br>
+主持｜呂嘉俊
   </section>
-  <section class="content-block" id="contact">
+  <section class="intro" id="contact">
     <h2>有關及聯絡我們</h2>
               <img src="author.jpg" style="width:100%" class="responsive">
     <p>作者介紹——徐子君 Kristie Chow：創意製作人及公共歷史工作者，創辦了 YouTube 頻道《The American Chinese Food Show》。現以紀錄片（《Chicago Cafe》、《Elegy to the Last Raw Fish Salad》）、寫作與展覽等多元形式，記錄華人在美國餐館背後的故事、場所與傳承。職涯橫跨多個領域，曾任報章警線記者與矽谷社交媒體公司產品經理。畢業於加州大學柏克萊藝術及歷史系。</p>
