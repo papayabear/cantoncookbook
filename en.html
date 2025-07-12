@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Guangzhou Recipe: The Lost Manuscript of Chu Poin</title>
+  <title>Canton Cookbook: The Lost Manuscript of Chu Poin</title>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link href="https://fonts.googleapis.com/css2?family=Clash+Grotesk:wght@400;700&family=Lato:wght@400;700&family=Proxima+Nova:wght@400;700&family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
-  <style>
+    <style>
     body {
       margin: 0;
       font-family: "Clash Grotesk", "Lato", "Proxima Nova", "Ubuntu", "Noto Sans CJK", "Noto Sans SC", "Noto Sans HK", sans-serif;
@@ -44,13 +44,30 @@
       cursor: pointer;
       padding-left: 1rem;
     }
-    header {
-      background-image: url('header.png') center center/cover no-repeat;
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
-      max-width: 100%;
-      margin-top: 60px;
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .bar {
+      height: 3px;
+      width: 25px;
+      background-color: #e55523;
+      margin: 4px 0;
+    }
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      background-color: #feecde;
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .mobile-nav a {
+      padding: 1rem;
+      text-decoration: none;
+      color: #e55523;
     }
     .intro {
       background-color: #f2f2f2;
@@ -72,9 +89,24 @@
       margin: 2rem auto;
       display: block;
     }
+    a.button {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: #823e3f;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 4px;
+    }
     @media (max-width: 768px) {
       .nav-links {
         display: none;
+      }
+      .hamburger {
+        display: flex;
+      }
+      .mobile-nav.show {
+        display: flex;
       }
       .intro, .content-block {
         padding: 1rem;
@@ -84,34 +116,204 @@
         margin: 1rem 0;
       }
     }
+    .slideshow-container {
+      max-width: 1000px;
+      position: relative;
+      margin: auto;
+      margin-top: 60px;
+    }
+    .mySlides {
+      display: none;
+    }
+    .fade {
+      animation-name: fade;
+      animation-duration: 1.5s;
+    }
+    @keyframes fade {
+      from {opacity: .4}
+      to {opacity: 1}
+    }
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      margin-top: -22px;
+      padding: 16px;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      transition: 0.6s ease;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+      background-color: rgba(0,0,0,0.4);
+    }
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+    .prev:hover, .next:hover {
+      background-color: rgba(0,0,0,0.8);
+    }
+    .text {
+      color: #f2f2f2;
+      font-size: 15px;
+      padding: 8px 12px;
+      position: absolute;
+      bottom: 8px;
+      width: 100%;
+      text-align: center;
+    }
+    .dot {
+      cursor: pointer;
+      height: 15px;
+      width: 15px;
+      margin: 0 2px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+    }
+    .dot.active, .dot:hover {
+      background-color: #717171;
+    }
     .responsive {
       width: 100%;
       max-width: 800px;
       height: auto;
     }
+    .responsiveheader {
+      width: 100%;
+      max-width: 1600px;
+      height: auto;
+      display: flex;
+      justify-content: center;
+      margin-top: 60px;
+      padding: 2rem 0rem;
+    }
+    div.scroll-container {
+      background-color: #823e3f;
+      overflow-x: auto;
+      white-space: nowrap;
+      padding: 10px;
+      display: flex;
+      gap: 1rem;
+    }
+    div.scroll-container img {
+      height: auto;
+      width: auto;
+      max-height: 50vh;
+    }
+    @media (max-width: 768px) {
+      div.scroll-container img {
+        max-height: 20vh;
+      }
+    }
   </style>
+  <script>
+    function toggleMobileNav() {
+      const nav = document.getElementById('mobileNav');
+      nav.classList.toggle('show');
+    }
+
+    let slideIndex = 1;
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("dot");
+      if (n > slides.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";
+      dots[slideIndex-1].className += " active";
+    }
+    document.addEventListener("DOMContentLoaded", function() {
+      showSlides(slideIndex);
+    });
+  </script>
 </head>
 <body>
   <nav>
-    <a href="en.html" style="margin-right:auto;"><img src="logo.png" alt="Logo" style="height:40px;"></a>
+    <a href="index.html" style="margin-right:auto;"><img src="logo.png" alt="Logo" style="height:40px;"></a>
     <div class="nav-links">
+      <a href="#about">Story</a>
+      <a href="#recipes">Recipes</a>
+      <a href="#updates">Updates</a>
+      <a href="#contact">Contact</a>
       <a href="index.html" class="lang-toggle">中文</a>
     </div>
+    <div class="hamburger" onclick="toggleMobileNav()">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+    <div class="mobile-nav" id="mobileNav">
+      <a href="#about">Story</a>
+      <a href="#recipes">Recipes</a>
+      <a href="#updates">Updates</a>
+      <a href="#contact">Contact</a>
+      <a href="en.html">EN</a>
+    </div>
   </nav>
+  <div><img src="header.png"  style="width:100%" style="height:80vh" class="responsiveheader"></div>
   <section class="content-block" id="about">
     <h2>Recipes Passed Down, One by One</h2>
     <p>In the 1940s, Chu Poin quietly recorded over 600 Cantonese recipes while working in New York at iconic restaurants like Lum Fong and Ruby Foo’s. Decades later, his handwritten notes were discovered by his grandson, opening a new window into the untold history of Chinese American food.</p>
+  <div class="scroll-container">
+      <img src="image1600.png" alt="Chu Poin" />
+      <img src="image2600.jpg" alt="Lum Fong Chinatown" />
+      <img src="image3600.png" alt="Ruby Foo's Menu" />
+      <img src="image4600.png" alt="Rice Bowl Restaurant" />
+      <img src="image5600.jpg" alt="Cathay House newspaper ad" />
+    </div>
   </section>
 
   <section class="intro" id="recipes">
     <h2>645 Dishes</h2>
     <p>Among the 645 recipes are dishes like “Plum Blossoms Competing in Beauty,” “Golden Flowers Heralding Joy,” “Immortal Cranes Add Longevity,” and “Phoenix and Swallow Hidden Treasures.” The manuscript is organized into 18 sections: soups, shark fin, duck, chicken, pigeon, double-boiled dishes, abalone and snails, sea cucumber, fish, fried rolls, casseroles, tofu, stir-fried dishes, sweet and sour, noodles, vegetarian dishes, sweet soups, and sweet and savory dim sum.</p>
+    <div class="slideshow-container">
+    <div class="mySlides fade">
+      <img src="dish1.png" style="width:100%">
+    </div>
+    <div class="mySlides fade">
+      <img src="dish2.png" style="width:100%">
+    </div>
+    <div class="mySlides fade">
+      <img src="dish3.png" style="width:100%">
+    </div>
+        <div class="mySlides fade">
+      <img src="dish4.png" style="width:100%">
+    </div>
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  </div>
   </section>
 
   <section class="content-block" id="updates">
-    <h2>Book Launching Soon</h2>
-    <p>This book combines biography, culinary history, and family archive. Through a rare recipe manuscript, it tells the story of a Chinese American family while also tracing how Cantonese cuisine became deeply embedded in American life. <em>Guangzhou Recipe: The Lost Manuscript of Chu Poin</em> will be released in bookstores across Hong Kong in July 2025.</p>
+    <h2>Coming This July</h2>
+    <p>This book combines biography, culinary history, and family archive. Through a rare recipe manuscript, it tells the story of a Chinese American family while also tracing how Cantonese cuisine became deeply embedded in American life. <em>The Buried Archive of Cantonese American Cooking</em> will be released in bookstores across Hong Kong in July 2025.</p>
     <img src="book.png" class="book-img">
+     <h3>Book Talk at Eslite Causeway Bay: How Chinese Cuisine Took Root in America</h3>
+    <p><img src="eslite.jpg" class="responsive"></p>
+    July 27, 2025 – 5:00–6:00pm<br>
+    Eslite Forum, Causeway Bay
+
+    <p>In the 1930s, Chinese restaurants in America rivaled their counterparts in Hong Kong. Some dishes that have vanished from Hong Kong’s tables survived abroad. Starting with a family cookbook from the 1930s, this project spans Hong Kong, Xinhui, and New York, tracing a story of Cantonese food across generations.</p>
+
+    <p><strong>Presented by:</strong> Type Research Institute<br>
+    <strong>Speaker:</strong> Kristie Chow<br>
+    <strong>Moderator:</strong> Lui Ka Chun</p>
   </section>
 
   <section class="intro" id="contact">
