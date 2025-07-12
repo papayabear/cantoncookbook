@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guangzhou Recipe: The Lost Manuscript of Chu Poin</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Clash+Grotesk:wght@400;700&family=Lato:wght@400;700&family=Proxima+Nova:wght@400;700&family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: "Clash Grotesk", "Lato", "Proxima Nova", "Ubuntu", "Noto Sans CJK", "Noto Sans SC", "Noto Sans HK", sans-serif;
+      background-color: #feecde;
+      color: #e55523;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 3rem;
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      background-color: #feecde;
+      z-index: 10;
+      font-size: 1rem;
+      letter-spacing: 0.15em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.2rem;
+      align-items: center;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #e55523;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      transition: background 0.3s ease;
+    }
+    .lang-toggle {
+      font-weight: 600;
+      cursor: pointer;
+      padding-left: 1rem;
+    }
+    header {
+      background-image: url('header.png') center center/cover no-repeat;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      max-width: 100%;
+      margin-top: 60px;
+    }
+    .intro {
+      background-color: #f2f2f2;
+      padding: 1.5rem 10rem 1.5rem 10rem;
+    }
+    .intro h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .intro p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+    .content-block {
+      padding: 1.5rem 10rem 1.5rem 10rem;
+    }
+    .book-img {
+      width: 40%;
+      margin: 2rem auto;
+      display: block;
+    }
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      .intro, .content-block {
+        padding: 1rem;
+      }
+      .book-img {
+        width: 100%;
+        margin: 1rem 0;
+      }
+    }
+    .responsive {
+      width: 100%;
+      max-width: 800px;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="en.html" style="margin-right:auto;"><img src="logo.png" alt="Logo" style="height:40px;"></a>
+    <div class="nav-links">
+      <a href="index.html" class="lang-toggle">中文</a>
+    </div>
+  </nav>
+  <section class="content-block" id="about">
+    <h2>Recipes Passed Down, One by One</h2>
+    <p>In the 1940s, Chu Poin quietly recorded over 600 Cantonese recipes while working in New York at iconic restaurants like Lum Fong and Ruby Foo’s. Decades later, his handwritten notes were discovered by his grandson, opening a new window into the untold history of Chinese American food.</p>
+  </section>
+
+  <section class="intro" id="recipes">
+    <h2>645 Dishes</h2>
+    <p>Among the 645 recipes are dishes like “Plum Blossoms Competing in Beauty,” “Golden Flowers Heralding Joy,” “Immortal Cranes Add Longevity,” and “Phoenix and Swallow Hidden Treasures.” The manuscript is organized into 18 sections: soups, shark fin, duck, chicken, pigeon, double-boiled dishes, abalone and snails, sea cucumber, fish, fried rolls, casseroles, tofu, stir-fried dishes, sweet and sour, noodles, vegetarian dishes, sweet soups, and sweet and savory dim sum.</p>
+  </section>
+
+  <section class="content-block" id="updates">
+    <h2>Book Launching Soon</h2>
+    <p>This book combines biography, culinary history, and family archive. Through a rare recipe manuscript, it tells the story of a Chinese American family while also tracing how Cantonese cuisine became deeply embedded in American life. <em>Guangzhou Recipe: The Lost Manuscript of Chu Poin</em> will be released in bookstores across Hong Kong in July 2025.</p>
+    <img src="book.png" class="book-img">
+  </section>
+
+  <section class="intro" id="contact">
+    <h2>About the Author</h2>
+    <img src="author.png" style="width:100%" class="responsive">
+    <p><strong>Kristie Chow</strong> is a creative producer and public historian. She is the creator of the YouTube channel <em>The American Chinese Food Show</em> and works across documentary, writing, and exhibitions to explore the stories, spaces, and legacies behind Chinese restaurants in America. Her career has spanned journalism and tech, and she is a graduate of UC Berkeley, where she studied art and history.</p>
+    <a href="mailto:kristiechow@gmail.com" class="button">Email</a>
+  </section>
+</body>
+</html>
